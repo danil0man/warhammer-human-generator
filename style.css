@@ -12,7 +12,7 @@ body {
 	margin: 5rem auto;
 	max-width: 80rem;
 	padding: 2rem;
-	background-color: #777;
+	background-color: #8f8f8f;
 	box-shadow: 0 2rem 3rem black;
 }
 
@@ -20,7 +20,7 @@ body {
 	font-size: 1.5rem;
 	text-align: center;
 	text-transform: uppercase;
-	color: #fff;
+	color: #000;
 	text-shadow: 0 1rem 1rem black;
 	margin-bottom: 2rem;
 }
@@ -28,7 +28,7 @@ body {
 table,
 th,
 td {
-	border: 1px solid #fff;
+	border: 1px solid #000;
 }
 
 .table {
@@ -46,10 +46,15 @@ td {
 	padding: 1rem 2rem;
 	font-size: 1.5rem;
 	font-style: italic;
-	color: #fff;
+	color: #000;
 	text-shadow: 0 0.3rem 1rem black;
 }
 
 .char {
 	text-align: center;
+	padding: 1rem 2rem;
+	font-size: 2rem;
+	font-weight: 700;
+	color: yellow;
+	-webkit-text-stroke: 1px black;
 }
