@@ -16,7 +16,6 @@ const career = document.querySelector('.char-prof');
 const age = document.querySelector('.age');
 const eyes = document.querySelector('.eyes');
 const hair = document.querySelector('.hair');
-const height = document.querySelector('.height');
 
 // Variables
 const femaleNames = fNames.split('-').sort();
@@ -81,8 +80,7 @@ eyeRoll === 2 ? eyes.innerHTML = 'White Blond'
                         : eyeRoll >= 15 && eyeRoll <= 17 ? eyes.innerHTML = 'Black'
                             : eyeRoll === 18 ? eyes.innerHTML = 'Auburn'
                                 : eyeRoll === 19 ? eyes.innerHTML = 'Red' : 'Grey';
-
-// 
+ 
 
 
 
