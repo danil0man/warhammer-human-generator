@@ -5,17 +5,29 @@ const mNames = 'Abelhard-Abelhelm-Admund-Adred-Adric-Agis-Alaric-Alberic-Albrech
 
 const lNames = 'Adelhof-Delfholr-Godrgraf-Kuhn-Neumann-Schwalb-Albrecht-Drakenhof-Grunenwald-Kummel-Niederlitz-Steinerf-Allenstag-Drauwulf-Guth-Konig-Nuhr-Altmann-Durrbein-Haintz-Konigsamen-Oberholtzer-Teuber-Atzwig-Ehrhard-Herz-Lang-Ohmen-Tolzen-Bacher-Eisenhauer-Herzog-La11kdorf-Otzlowe-Trachsel-Baer-Eschlimann-Hirtzel-Liess-Reichert-Weber-Baumann-Falkenheim-Hoch-Lebengut-Reifsneider-Wechsler-Becker-Fehr-Hoefer-Lurzen-Riese-Wirtz-Behn-Fiegler-Hofscert-Machholt-Rohrig-Widmann-Betz-Fleischer-Jaeger-Meusmann-Reiss-Widmer-Beyer-Frohlich-Jochutz-Meyer-Schaffer-Veit-Bischof-Frueh-Jutzenbach-Mohr-Schaumer-Vogt-Boehm-Fuchs-Kalb-Muller-Scherer-Vogel-Breirenbach-Gaffwig-Kaltenbach-Nachtrnann-Schultz-Zumwald-Breuer-Gaertner-Kraemer-Naubhof-Schleiermacher-Dahmbach-Gebauer-Krebs-Nerzhoch-Schreiber';
 
+const careers = ['Apothecary', 'Engineer', 'Lawyer', 'Nun', 'Nun', 'Physician', 'Priest','Priest','Priest','Priest','Priest', 'Scholar','Scholar', 'Wizard', 'Agitator', 'Artisan', 'Artisan', 'Beggar','Beggar', 'Investigator', 'Merchant', 'Rat Catcher', 'Rat Catcher', 'Townsman','Townsman','Townsman', 'Watchman', 'Advisor', 'Artist', 'Duellist', 'Envoy', 'Noble', 'Servant','Servant','Servant', 'Spy', 'Warden', 'Bailiff', 'Hedge Witch', 'Herbalist', 'Hunter', 'Hunter', 'Miner', 'Mystic','Scout', 'Villager', 'Villager', 'Villager', 'Villager', 'Villager', 'Bounty Hunter', 'Coachman', 'Entertainer','Entertainer', 'Flagellant', 'Flagellant', 'Messenger', 'Pedlar', 'Road Warden', 'Witch Hunter', 'Boatman','Boatman', 'Huffer', 'Riverwarden','Riverwarden', 'Riverwoman', 'Riverwoman', 'Riverwoman', 'Seaman','Seaman', 'Smuggler', 'Stevedore', 'Stevedore', 'Wrecker', 'Bawd', 'Bawd', 'Charlatan', 'Fence', 'Grave Robber', 'Outlaw', 'Outlaw', 'Outlaw', 'Outlaw', 'Racketeer', 'Thief', 'Thief', 'Thief', 'Witch', 'Cavalryman', 'Cavalryman', 'Guard', 'Guard', 'Knight', 'Pit Fighter', 'Protagonist', 'Soldier','Soldier','Soldier','Soldier', 'Warrior Priest'];
 
+
+// Selectors
+const characteristics = document.querySelectorAll('.char');
+const charName = document.querySelector('.char-name');
+const pronounce = document.querySelectorAll('.pronounce');
+const career = document.querySelector('.char-prof');
+const age = document.querySelector('.age');
 
 // Variables
-const characteristics = document.querySelectorAll('.char');
 const femaleNames = fNames.split('-').sort();
 const fIndex = Math.floor(Math.random() * femaleNames.length);
 const maleNames = mNames.split('-').sort();
 const mIndex = Math.floor(Math.random() * maleNames.length);
 const surNames = lNames.split('-').sort();
 const sIndex = Math.floor(Math.random() * surNames.length);
+const cIndex = Math.floor(Math.random() * careers.length);
+
+
+// Dices
 const d100 = Math.floor(Math.random() * 100 + 1);
+const d10 = Math.floor(Math.random() * 10 + 1);
 
 
 // Creating Characteristics
@@ -33,13 +45,14 @@ characteristics.forEach(char => {
     
 });
 
-// Crea
-
-if (d100 <= 50) {
-    console.log(`Your characters name is ${femaleNames[fIndex]} ${surNames[sIndex]}`);
-} else {
-    console.log(`Your characters name is ${maleNames[mIndex]} ${surNames[sIndex]}`);
-}
+// Character name Generator
+d100 <= 50 ? charName.innerHTML = `${femaleNames[fIndex]} ${surNames[sIndex]}` : charName.innerHTML = `${maleNames[mIndex]} ${surNames[sIndex]}`;
+// Pronounce Generator
+pronounce.forEach(pro => d100 <= 50 ? pro.innerHTML = 'She' : pro.innerHTML = 'He');
+// Career Generator
+career.innerHTML = `${careers[cIndex]}`;
+// Age Generator
+age.innerHTML = `${d10 + d10 + 15}`;
 
 
 
