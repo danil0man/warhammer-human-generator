@@ -14,6 +14,9 @@ const charName = document.querySelector('.char-name');
 const pronounce = document.querySelectorAll('.pronounce');
 const career = document.querySelector('.char-prof');
 const age = document.querySelector('.age');
+const eyes = document.querySelector('.eyes');
+const hair = document.querySelector('.hair');
+const height = document.querySelector('.height');
 
 // Variables
 const femaleNames = fNames.split('-').sort();
@@ -24,11 +27,13 @@ const surNames = lNames.split('-').sort();
 const sIndex = Math.floor(Math.random() * surNames.length);
 const cIndex = Math.floor(Math.random() * careers.length);
 
-
 // Dices
 const d100 = Math.floor(Math.random() * 100 + 1);
 const d10 = Math.floor(Math.random() * 10 + 1);
+const dice2 = Math.floor(Math.random() * 10 + 1);
 
+const eyeRoll = d10 + dice2;
+const hairRoll = d10 + dice2;
 
 // Creating Characteristics
 characteristics.forEach(char => {
@@ -52,7 +57,33 @@ pronounce.forEach(pro => d100 <= 50 ? pro.innerHTML = 'She' : pro.innerHTML = 'H
 // Career Generator
 career.innerHTML = `${careers[cIndex]}`;
 // Age Generator
-age.innerHTML = `${d10 + d10 + 15}`;
+age.innerHTML = `${d10 + dice2 + 15}`;
+
+//Hair Generator
+hairRoll === 2 ? hair.innerHTML = 'Free Choice' 
+    : hairRoll === 3 ? hair.innerHTML = 'Green'
+        : hairRoll === 4 ? hair.innerHTML = 'Pale Blue'
+            : hairRoll >= 5 && hairRoll <= 7 ? hair.innerHTML = 'Blue'
+                : hairRoll >= 8 && hairRoll <= 11 ? hair.innerHTML = 'Pale Grey'
+                    : hairRoll >= 12 && hairRoll <= 14 ? hair.innerHTML = 'Grey'
+                        : hairRoll >= 15 && hairRoll <= 17 ? hair.innerHTML = 'Brown'
+                            : hairRoll === 18 ? hair.innerHTML = 'Hazel'
+                                : hairRoll === 19 ? hair.innerHTML = 'Dark Brown' : 'Black';
+
+
+// Eyes Generator
+eyeRoll === 2 ? eyes.innerHTML = 'White Blond' 
+    : eyeRoll === 3 ? eyes.innerHTML = 'Golden Blond'
+        : eyeRoll === 4 ? eyes.innerHTML = 'Red Blond'
+            : eyeRoll >= 5 && eyeRoll <= 7 ? eyes.innerHTML = 'Golden Brown'
+                : eyeRoll >= 8 && eyeRoll <= 11 ? eyes.innerHTML = 'Light Brown'
+                    : eyeRoll >= 12 && eyeRoll <= 14 ? eyes.innerHTML = 'Dark Brown'
+                        : eyeRoll >= 15 && eyeRoll <= 17 ? eyes.innerHTML = 'Black'
+                            : eyeRoll === 18 ? eyes.innerHTML = 'Auburn'
+                                : eyeRoll === 19 ? eyes.innerHTML = 'Red' : 'Grey';
+
+// 
+
 
 
 

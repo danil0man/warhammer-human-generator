@@ -67,3 +67,8 @@ td {
 	color: yellow;
 	-webkit-text-stroke: 1px black;
 }
+
+span {
+	font-weight: 700;
+	color: yellow;
+}
